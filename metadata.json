@@ -1,0 +1,6 @@
+{
+  "name": "TaxSnap Financial Engineering",
+  "description": "High-precision US salary take-home pay calculator, tax breakdown, 50-state tax nodes, 2026 IRS tax rules, and financial intelligence suite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
