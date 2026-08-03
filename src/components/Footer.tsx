@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,13 +9,15 @@ export const Footer: React.FC = () => {
           {/* Brand & Disclaimer (6/12) */}
           <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded bg-[#4edea3] text-[#0e1511] font-mono font-bold text-xs flex items-center justify-center">
-                TS
-              </div>
-              <div className="flex items-baseline">
-                <span className="font-bold text-lg text-[#dde4dd]">Tax</span>
-                <span className="font-bold text-lg text-[#4edea3]">Snap</span>
-              </div>
+              <Link to="/" className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded bg-[#4edea3] text-[#0e1511] font-mono font-bold text-xs flex items-center justify-center">
+                  TS
+                </div>
+                <div className="flex items-baseline">
+                  <span className="font-bold text-lg text-[#dde4dd]">Paycheck</span>
+                  <span className="font-bold text-lg text-[#4edea3]">CalculatorUS</span>
+                </div>
+              </Link>
             </div>
 
             <p className="text-xs text-[#86948a] leading-relaxed max-w-lg">
@@ -26,47 +29,47 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-6 grid grid-cols-2 gap-8 font-mono text-xs">
             <div>
               <h4 className="font-bold text-[#dde4dd] uppercase tracking-wider mb-3">
-                Protocol
+                Information
               </h4>
               <ul className="space-y-2 text-[#bbcabf]">
                 <li>
-                  <a href="#hero-calculator" className="hover:text-[#4edea3] transition-colors">
-                    API Documentation
-                  </a>
+                  <Link to="/about" className="hover:text-[#4edea3] transition-colors">
+                    About Us
+                  </Link>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="hover:text-[#4edea3] transition-colors">
-                    Integration Guide
-                  </a>
+                  <Link to="/contact" className="hover:text-[#4edea3] transition-colors">
+                    Contact
+                  </Link>
                 </li>
                 <li>
-                  <a href="#hero-calculator" className="hover:text-[#4edea3] transition-colors flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#4edea3]"></span>
-                    Uptime Status (100%)
-                  </a>
+                  <Link to="/disclaimer" className="hover:text-[#4edea3] transition-colors">
+                    Disclaimer
+                  </Link>
                 </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-[#dde4dd] uppercase tracking-wider mb-3">
-                Company
+                Legal & Privacy
               </h4>
               <ul className="space-y-2 text-[#bbcabf]">
                 <li>
-                  <a href="#faq-section" className="hover:text-[#4edea3] transition-colors">
+                  <Link to="/privacy-policy" className="hover:text-[#4edea3] transition-colors">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#faq-section" className="hover:text-[#4edea3] transition-colors">
+                  <Link to="/terms-of-use" className="hover:text-[#4edea3] transition-colors">
                     Terms of Use
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#faq-section" className="hover:text-[#4edea3] transition-colors">
-                    Discord Community
-                  </a>
+                  <Link to="/" className="hover:text-[#4edea3] transition-colors flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#4edea3]"></span>
+                    2026 Tax Engine
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -75,7 +78,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Banner */}
         <div className="pt-8 border-t border-[#28342c]/60 text-center font-mono text-[11px] text-[#5c6e62] tracking-wider uppercase">
-          © 2026 TAXSNAP // CYBER-FINTECH PROTOCOL // V2.0.26
+          © 2026 PAYCHECKCALCULATORUS // ALL RIGHTS RESERVED
         </div>
       </div>
     </footer>
