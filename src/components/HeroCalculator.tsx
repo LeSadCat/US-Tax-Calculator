@@ -84,6 +84,9 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
       {/* Top Headline Section */}
       <div className="text-center max-w-4xl mx-auto mb-10 px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#dde4dd] leading-tight">
+          <span className="text-xs font-mono font-semibold text-[#4edea3] uppercase tracking-widest block mb-2">
+            Free US Paycheck Calculator 2026
+          </span>
           Your offer letter says{' '}
           <span className="text-[#c0c1ff] font-mono border-b-2 border-[#c0c1ff]/40 px-1 inline-block">
             {formatCurrency(inputs.grossSalary)}
@@ -100,7 +103,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
         <div className="lg:col-span-5 xl:col-span-4 glass-card rounded-xl p-5 sm:p-6 space-y-6">
           {/* Annual Gross Salary */}
           <div>
-            <label className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
+            <label htmlFor="gross-salary-input" className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
               Annual Gross Salary
             </label>
             <div className="relative rounded-md shadow-sm">
@@ -108,7 +111,9 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
                 <span className="font-mono font-bold text-lg">$</span>
               </div>
               <input
+                id="gross-salary-input"
                 type="text"
+                aria-label="Annual Gross Salary"
                 value={inputs.grossSalary === 0 ? '' : inputs.grossSalary.toLocaleString('en-US')}
                 onChange={handleSalaryChange}
                 placeholder="85,000"
@@ -121,6 +126,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
                 <button
                   key={amt}
                   type="button"
+                  aria-label={`Set salary to ${amt.toLocaleString()} dollars`}
                   onClick={() => handleQuickSalary(amt)}
                   className={`text-[11px] font-mono px-2.5 py-1 rounded border transition-colors cursor-pointer ${
                     inputs.grossSalary === amt
@@ -136,11 +142,14 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
 
           {/* State Jurisdiction */}
           <div className="relative">
-            <label className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
+            <label id="state-jurisdiction-label" className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
               State Jurisdiction
             </label>
             <button
+              id="state-select-btn"
               type="button"
+              aria-labelledby="state-jurisdiction-label"
+              aria-label="Select State Jurisdiction"
               onClick={() => setShowStateDropdown(!showStateDropdown)}
               className="w-full flex items-center justify-between px-3.5 py-2.5 bg-[#0e1511] border border-[#28342c] rounded-md text-left text-sm text-[#dde4dd] font-medium hover:border-[#3c4a42] transition-colors cursor-pointer"
             >
@@ -162,7 +171,9 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
             {showStateDropdown && (
               <div className="absolute z-50 mt-1 w-full bg-[#161d19] border border-[#28342c] rounded-md shadow-2xl max-h-60 overflow-y-auto p-2">
                 <input
+                  id="state-search-input"
                   type="text"
+                  aria-label="Search US state"
                   placeholder="Search state..."
                   value={stateSearch}
                   onChange={(e) => setStateSearch(e.target.value)}
@@ -173,6 +184,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
                     <button
                       key={st.id}
                       type="button"
+                      aria-label={`Select ${st.name}`}
                       onClick={() => {
                         setInputs((prev) => ({ ...prev, stateId: st.id }));
                         setShowStateDropdown(false);
@@ -202,7 +214,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
             <label className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
               Filing Status
             </label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Tax Filing Status">
               {[
                 { id: 'single', label: 'Single' },
                 { id: 'joint', label: 'Married Joint' },
@@ -212,6 +224,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
                 <button
                   key={st.id}
                   type="button"
+                  aria-label={`Filing status ${st.label}`}
                   onClick={() => setInputs((prev) => ({ ...prev, filingStatus: st.id as FilingStatus }))}
                   className={`px-3 py-2 text-xs font-medium rounded-md border text-center transition-all cursor-pointer ${
                     inputs.filingStatus === st.id
@@ -228,7 +241,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
           {/* 401(k) Contribution Slider */}
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase">
+              <label htmlFor="k401-slider" className="text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase">
                 401(k) Contribution
               </label>
               <span className="font-mono text-xs font-bold text-[#4edea3]">
@@ -236,10 +249,12 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
               </span>
             </div>
             <input
+              id="k401-slider"
               type="range"
               min="0"
               max="25"
               step="1"
+              aria-label="401k Contribution Percentage"
               value={inputs.k401Percent}
               onChange={(e) => setInputs((prev) => ({ ...prev, k401Percent: parseInt(e.target.value, 10) }))}
               className="w-full h-1.5 bg-[#0e1511] rounded-lg appearance-none cursor-pointer accent-[#4edea3]"
@@ -256,7 +271,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
             <label className="block text-xs font-semibold font-mono tracking-wider text-[#bbcabf] uppercase mb-2">
               Pay Frequency
             </label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Pay Frequency">
               {[
                 { id: 'bi-weekly', label: 'Bi-Weekly' },
                 { id: 'monthly', label: 'Monthly' },
@@ -266,6 +281,7 @@ Marginal Tax Bracket: ${results.marginalRate}%`;
                 <button
                   key={freq.id}
                   type="button"
+                  aria-label={`Pay frequency ${freq.label}`}
                   onClick={() => setInputs((prev) => ({ ...prev, payFrequency: freq.id as PayFrequency }))}
                   className={`px-3 py-2 text-xs font-medium rounded-md text-center transition-all cursor-pointer ${
                     inputs.payFrequency === freq.id

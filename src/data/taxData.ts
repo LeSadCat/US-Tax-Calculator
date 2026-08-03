@@ -580,39 +580,45 @@ export const FEDERAL_BRACKETS_2026_SINGLE = [
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'How accurate is the system protocol?',
-    answer: 'The TaxSnap algorithm simulates the exact 2026 IRS federal tax brackets, 2026 standard deduction models ($14,600 Single / $29,200 Joint), FICA caps ($168,600 Social Security cap + 1.45% Medicare + 0.9% Additional Medicare over $200k), and 50-state tax rules to produce penny-accurate gross-to-net salary calculations.',
+    question: 'How is take-home pay calculated?',
+    answer: 'Take-home pay is calculated by taking your gross annual salary, subtracting pre-tax deductions like 401(k) and HSA contributions, applying federal standard deductions ($14,600 Single for 2026) and progressive tax brackets, calculating state income tax, and subtracting FICA taxes (6.2% Social Security up to $168,600 + 1.45% Medicare).',
     category: 'BASICS'
   },
   {
     id: 'faq-2',
-    question: 'What counts as a pre-tax offset?',
-    answer: 'Pre-tax offsets reduce your Gross Salary before calculating Federal and State income taxes. Key examples include traditional 401(k) contributions (up to $23,000 for 2026), Health Savings Accounts (HSA), Flexible Spending Accounts (FSA), and pre-tax health insurance premiums.',
-    category: 'BASICS'
+    question: 'What percentage of my paycheck goes to taxes?',
+    answer: 'Your total tax percentage (effective tax rate) typically ranges from 15% to 35% depending on your gross salary, state jurisdiction, filing status, and pre-tax retirement deductions. Higher incomes face higher marginal rates under US progressive taxation.',
+    category: 'TAXES'
   },
   {
     id: 'faq-3',
-    question: 'No-tax states: what is the catch?',
-    answer: 'States like Texas, Florida, Washington, and Nevada do not levy state income tax on W-2 salary earnings. However, municipalities in these states often offset revenue through higher property taxes, sales tax rates, or commercial franchise fees.',
+    question: 'How much federal tax is taken out of my paycheck?',
+    answer: 'Federal tax withholding is calculated using 2026 IRS progressive tax brackets ranging from 10% up to 37%. Taxes are applied only to your taxable income after subtracting your standard deduction ($14,600 Single / $29,200 Joint) and pre-tax 401(k) contributions.',
     category: 'TAXES'
   },
   {
     id: 'faq-4',
-    question: 'FICA vs Federal Income Tax?',
-    answer: 'Federal Income Tax goes to general government spending and scales progressively from 10% to 37%. FICA (Federal Insurance Contributions Act) is a mandatory 7.65% payroll tax (6.2% Social Security capped at $168,600 + 1.45% uncapped Medicare) that directly funds Social Security and Medicare.',
-    category: 'TAXES'
+    question: 'Is a bonus taxed differently than salary?',
+    answer: 'Supplemental wages like bonuses may be withheld at a flat 22% federal rate by your employer, but at tax time, all income is combined. Your bonus is ultimately taxed at your standard marginal tax bracket alongside your base gross salary.',
+    category: 'PLANNING'
   },
   {
     id: 'faq-5',
-    question: 'Standard Deduction vs Itemization?',
-    answer: 'The 2026 standard deduction allows single W-2 earners to deduct $14,600 tax-free automatically. You should only itemize deductions (Schedule A) if your combined state and local taxes (SALT capped at $10k), mortgage interest, and charitable donations exceed $14,600.',
-    category: 'PLANNING'
+    question: 'How do I calculate net pay from gross pay?',
+    answer: 'Net pay equals Gross Pay minus Pre-tax Deductions (401k/HSA) minus Federal Income Tax minus State Income Tax minus FICA Payroll Taxes (Social Security + Medicare). Divide annual net pay by your pay frequency (bi-weekly, monthly, weekly) to see per-paycheck earnings.',
+    category: 'BASICS'
   },
   {
     id: 'faq-6',
-    question: 'Why did my tax rate go up at $200k?',
-    answer: 'Crossing the $200,000 threshold for single filers ($250,000 for joint) triggers two key tax adjustments: entry into the 24% or higher federal bracket, and the mandatory 0.9% Additional Medicare Tax surcharge under Section 3101(b)(2).',
-    category: 'PLANNING'
+    question: 'Is this calculator accurate for 2026 tax brackets?',
+    answer: 'Yes, PaycheckCalculatorUS simulates the exact 2026 IRS federal tax brackets, 2026 standard deduction models ($14,600 Single / $29,200 Joint), FICA wage caps ($168,600 Social Security cap + 1.45% Medicare + 0.9% Additional Medicare), and state tax rules across all 50 states.',
+    category: 'BASICS'
+  },
+  {
+    id: 'faq-7',
+    question: 'Does it include state taxes?',
+    answer: 'Yes, our US paycheck calculator supports all 50 states, including flat tax states, progressive bracket states like California and New York, and no income tax states like Texas, Florida, Washington, and Nevada.',
+    category: 'TAXES'
   }
 ];
 

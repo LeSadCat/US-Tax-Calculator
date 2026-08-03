@@ -80,6 +80,7 @@ export const StateNodesGrid: React.FC<StateNodesGridProps> = ({
           <Search className="w-4 h-4 text-[#86948a] absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
+            aria-label="Query state protocol search"
             placeholder="Query state protocol..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

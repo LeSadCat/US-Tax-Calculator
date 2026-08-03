@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paycheckcalculatorus.com/sitemap.xml
